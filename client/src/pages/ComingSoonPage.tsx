@@ -14,12 +14,10 @@ export const ComingSoonPage = (): JSX.Element => {
     mutationFn: async (email: string) => {
       const response = await fetch("/api/subscribe", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
-          recipientEmail: "raneaniket23@gmail.com"
+          recipientEmail: "raneaniket23@gmail.com",
         }),
       });
 
@@ -70,13 +68,13 @@ export const ComingSoonPage = (): JSX.Element => {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSubmit();
     }
   };
 
   return (
-    <div className="bg-neutral-50 flex justify-center items-center w-full min-h-screen p-4">
+    <div className="bg-neutral-50 flex justify-center items-center w-full min-h-screen p-4 font-poppins">
       <div className="relative w-full max-w-[1440px] overflow-hidden">
         <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center px-0 sm:px-4 md:px-8 lg:px-12 py-4 sm:py-6 md:py-8 lg:py-16 gap-4 sm:gap-6 lg:gap-8 min-h-[calc(100vh-2rem)] lg:min-h-[810px]">
 
@@ -84,22 +82,22 @@ export const ComingSoonPage = (): JSX.Element => {
           <div className="flex flex-col w-full lg:max-w-[533px] space-y-6 sm:space-y-8 z-10 text-center lg:text-left">
             <div className="flex flex-col space-y-4 sm:space-y-6">
               <div className="flex flex-col space-y-2 sm:space-y-3">
-                <p className="font-['Kantumruy',Helvetica] font-bold text-[#595959] text-sm sm:text-base lg:text-lg tracking-[0.18px] leading-6 sm:leading-8 lg:leading-9">
+                <p className="font-bold text-[#595959] text-sm sm:text-base lg:text-lg tracking-[0.18px] leading-6 sm:leading-8 lg:leading-9">
                   We’re almost ready to light up your world!
                 </p>
-                <h1 className="font-['Kanit',Helvetica] font-bold text-black 
-  text-[24px] sm:text-[30px] md:text-[38px] lg:text-[40px] xl:text-[44px] 
-  leading-tight whitespace-nowrap">
+                <h1 className="font-bold text-black 
+                  text-[24px] sm:text-[30px] md:text-[38px] lg:text-[40px] xl:text-[44px] 
+                  leading-tight whitespace-nowrap">
                   Vora Electric Service Pvt. Ltd.
                 </h1>
-                <p className="font-['Kantumruy',Helvetica] font-normal text-[#595959] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
-                  has been delivering top-notch electrical and allied solutions for over six decades.
+                <p className="font-normal text-[#595959] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
+                  Vora has been delivering top-notch electrical and allied solutions for over six decades.
                   Our expertise has powered countless spaces.
                 </p>
-                <p className="font-['Kantumruy',Helvetica] font-normal text-[#595959] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
+                <p className="font-normal text-[#595959] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
                   Now, we’re switching on a new era with innovation, integrity, and legacy at the core.
                 </p>
-                <p className="font-['Kantumruy',Helvetica] font-bold text-black text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
+                <p className="font-bold text-black text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
                   Stay connected.<br />
                   Stay powered.<br />
                   Launching Soon!
@@ -116,7 +114,7 @@ export const ComingSoonPage = (): JSX.Element => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    className="border-0 bg-transparent h-12 sm:h-14 px-4 sm:px-6 lg:px-8 font-['Kantumruy',Helvetica] text-[#999999] text-sm sm:text-base placeholder:text-xs sm:placeholder:text-sm"
+                    className="border-0 bg-transparent h-12 sm:h-14 px-4 sm:px-6 lg:px-8 text-[#999999] text-sm sm:text-base placeholder:text-xs sm:placeholder:text-sm"
                     placeholder="Enter your email for notifications"
                     required
                     disabled={subscriptionMutation.isPending}
