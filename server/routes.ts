@@ -26,17 +26,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
         Timestamp: ${new Date().toISOString()}
         IP: ${req.ip || req.connection.remoteAddress}`);
 
-      // Configure Gmail transporter with your credentials
+      // Check if email credentials are configured
+      if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+        console.warn('⚠️ Email credentials not configured. Email functionality disabled.');
+        return res.json({ 
+          success: true, 
+          message: "Thank you for subscribing! We'll notify you when we launch.",
+          note: "Email notifications are currently being configured."
+        });
+      }
+
+      // Configure Gmail transporter with environment variables
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'raneaniket23@gmail.com',
-          pass: 'bacnckysycnwedju'
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_APP_PASSWORD
         }
       });
 
       const mailOptions = {
-        from: '"Coming Soon Page" <raneaniket23@gmail.com>',
+        from: `"Coming Soon Page" <${process.env.GMAIL_USER || 'your-email@gmail.com'}>`,
         to: recipientEmail,
         subject: 'New Email Subscription from Coming Soon Page',
         html: `
