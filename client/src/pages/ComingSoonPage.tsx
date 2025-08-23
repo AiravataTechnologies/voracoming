@@ -21,7 +21,7 @@ export const ComingSoonPage = (): JSX.Element => {
         user_email: email,
         timestamp: new Date().toLocaleString(),
         ip_address: 'Client-side submission',
-        to_email: 'raneaniket23@gmail.com'
+        to_email: 'vora@ves.co.in'
       };
 
       // Send email using Email.js

@@ -1,6 +1,6 @@
 # Gmail Email Setup Instructions
 
-Your email subscription form is working! Here's what I need to enable real email sending to raneaniket23@gmail.com:
+Your email subscription form is working! Here's what I need to enable real email sending to vora@ves.co.in:
 
 ## Requirements for Gmail Integration
 
@@ -15,14 +15,14 @@ You need to create an App Password for your Gmail account:
 
 ### 2. Provide These Credentials
 Once you have the App Password, provide me with:
-- **Your Gmail address**: raneaniket23@gmail.com (already configured)
+- **Your Gmail address**: vora@ves.co.in (already configured)
 - **Your App Password**: The 16-character password from step 1
 
 ## Current Status
 
 ✅ **Email form is working** - users can enter emails and submit
 ✅ **API endpoint functional** - receiving and validating emails
-✅ **Recipient set to raneaniket23@gmail.com**
+✅ **Recipient set to vora@ves.co.in**
 ✅ **Logging all subscriptions** to console
 ⚠️ **Ready for Gmail credentials** - just need your App Password
 
@@ -32,6 +32,6 @@ Once you provide the App Password, I'll:
 1. Configure the secure email transporter
 2. Enable real Gmail sending
 3. Test the email functionality
-4. Confirm emails are reaching raneaniket23@gmail.com
+4. Confirm emails are reaching vora@ves.co.in
 
 **Note**: The form currently shows success messages and logs everything - it just needs your Gmail App Password to send actual emails.
