@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import emailjs from '@emailjs/browser';
 
 export const ComingSoonPage = (): JSX.Element => {
   const [email, setEmail] = useState("");
@@ -12,21 +13,29 @@ export const ComingSoonPage = (): JSX.Element => {
 
   const subscriptionMutation = useMutation({
     mutationFn: async (email: string) => {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          recipientEmail: "raneaniket23@gmail.com",
-        }),
-      });
+      // Initialize Email.js with your public key
+      emailjs.init('-muQ7r6gn-ZGEquip');
+      
+      // Prepare template parameters
+      const templateParams = {
+        user_email: email,
+        timestamp: new Date().toLocaleString(),
+        ip_address: 'Client-side submission',
+        to_email: 'raneaniket23@gmail.com'
+      };
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to subscribe");
+      // Send email using Email.js
+      const result = await emailjs.send(
+        'service_593zw4s',
+        'template_6qbzf3c',
+        templateParams
+      );
+
+      if (result.status !== 200) {
+        throw new Error('Failed to send notification email');
       }
 
-      return response.json();
+      return { success: true, message: 'Subscription successful!' };
     },
     onSuccess: () => {
       toast({

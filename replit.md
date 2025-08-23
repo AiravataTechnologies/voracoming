@@ -17,7 +17,7 @@ This is a full-stack TypeScript application migrated from Figma to Replit and co
 - **Development**: Express.js with TypeScript for local development
 - **Database**: PostgreSQL with Drizzle ORM (optional)
 - **Storage**: MemStorage for development (in-memory)
-- **Email Service**: Nodemailer with Gmail integration
+- **Email Service**: Email.js for client-side email notifications
 - **API**: RESTful endpoints with validation
 
 ### Key Features
@@ -78,6 +78,8 @@ This is a full-stack TypeScript application migrated from Figma to Replit and co
 
 ## Recent Changes
 - **Migration Complete**: Successfully migrated from Replit Agent to Replit environment
+- **Email System Migration**: Replaced PHP/server-side email with Email.js client-side integration
+- **Email.js Integration**: Added @emailjs/browser package and configured template with matching theme
 - **Security Hardening**: Added comprehensive security measures for production deployment
 - **Environment Variables**: Moved all sensitive data to secure environment variables
 - **Rate Limiting**: Implemented API protection against abuse (100 req/15min per IP)
@@ -89,5 +91,5 @@ This is a full-stack TypeScript application migrated from Figma to Replit and co
 ## Architecture Notes
 - **Development Mode**: Express server serves both frontend and API (port 4000)
 - **Production Mode**: Static site with serverless functions on Netlify
-- **Email Service**: Gmail integration via Netlify functions (requires environment variables)
+- **Email Service**: Email.js client-side integration for subscription notifications
 - **Static Assets**: Figma images served from public directory
